@@ -1,0 +1,32 @@
+
+
+<section style="margin-top:20px" class="blur">
+<div class="mt-4">
+    <app-basket-summary
+        [isBasket]=false
+        [items]="(basket$ | async) ? (basket$ | async).items:[]"
+    >
+    </app-basket-summary>
+</div>
+
+<div class="float-none d-flex justify-content-between flex-row flex-lg-row  mt-2 mb-5">
+    <button class="btn btn-outline-primary" cdkStepperPrevious>
+        <i class="fa fa-angle-left"></i> <i class="fas fa-2x fa-truck"></i>
+    </button>
+    <button class="btn btn-primary" (click)="createPaymentIntent()" >
+        <i class="fas fa-2x fa-money-check-alt ml-2"></i> <i class="fa  fa-angle-right"></i>
+    </button>
+
+
+</div>
+
+<div class="float-none d-flex justify-content-between flex-row flex-lg-row  mt-2 mb-5">
+    <a style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e" class="nav-link text-#09052e"
+        routerLink="/orders"><i class="fa fa-history"></i>
+        View Orders
+    </a>
+
+
+</div>
+
+</section>

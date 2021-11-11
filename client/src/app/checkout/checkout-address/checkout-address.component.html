@@ -1,0 +1,62 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" />
+
+<section  style="margin-top:20px; width: 100%;" class="blur">
+    <div  class="mt-4" [formGroup]="checkoutForm">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4 style="padding: 10px ;">Shipping Address</h4>
+        <button
+            (click)="saveUserAddress()"
+            [disabled]="!checkoutForm.get('addressForm').valid ||
+                !checkoutForm.get('addressForm').dirty"
+            class="btn btn-outline-primary mb-3"
+            style="border-radius:10px;color: #09052e;  margin-right: 10px; background:#DD4306">
+            Save <i class="fas fa-map-marked-alt"></i>
+        </button>
+    </div>
+    <div class="col-75" formGroupName="addressForm">
+        <div style="padding:5px; margin: 5px;" class="form-group col-25">
+            <app-text-input [label]="'First Name'" formControlName="firstName"></app-text-input>
+        </div>
+        <div style="padding:5px; margin: 5px;" class="form-group col-25">
+            <app-text-input [label]="'Last Name'" formControlName="lastName"></app-text-input>
+        </div>
+        <div style="padding:5px; margin: 5px;" class="form-group col-25">
+            <app-text-input [label]="'Street'" formControlName="street"></app-text-input>
+        </div>
+        <div style="padding:5px; margin: 5px;" class="form-group col-25">
+            <app-text-input [label]="'City'" formControlName="city"></app-text-input>
+        </div>
+        <div style="padding:5px; margin: 5px;" class="form-group col-25">
+            <app-text-input [label]="'State'" formControlName="state"></app-text-input>
+        </div>
+        <div style="padding:5px; margin: 5px;" class="form-group col-25">
+            <app-text-input [label]="'Zip Code'" formControlName="zipcode"></app-text-input>
+        </div>
+           <div style="padding:5px; margin: 5px;" class="form-group col-25">
+          <app-text-input [label]="'Phone Number'" formControlName="phoneNumber"></app-text-input>
+      </div>
+    </div>
+</div>
+
+<div  class="col-25" class="float-none d-flex justify-content-between flex-row flex-lg-row mt-2 mb-5">
+    <button  class="btn btn-outline-primary" routerLink="/basket">
+        <i class="fa fa-angle-left"></i>   <i class="fas fa-2x fa-shopping-basket"></i>
+    </button>
+    <button [disabled]="(checkoutForm.get('addressForm').invalid ||(checkoutForm.get('addressForm').valid &&
+    checkoutForm.get('addressForm').dirty) ) " class="btn btn-primary" cdkStepperNext>
+         <i class="fas fa-2x fa-truck"></i>   <i class="fa fa-angle-right"></i>
+    </button>
+
+</div>
+
+<div class="col-25" class="float-none d-flex justify-content-between flex-row flex-lg-row mt-2 mb-5">
+    
+<span style="padding: 10px;" class="span-error" *ngIf="checkoutForm.get('addressForm').valid &&
+checkoutForm.get('addressForm').dirty">
+You should save address before going to <i class="fas fa-2x fa-truck"></i>!!!
+</span>
+</div>
+
+</section>

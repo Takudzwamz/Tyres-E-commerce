@@ -1,0 +1,55 @@
+.faq-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px;
+  margin: 10px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  details {
+    &[open] summary {
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  }
+  summary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #09052e;
+    margin-bottom: 5px;
+    padding: 10px;
+    //text-transform:capitalize;
+    text-align:start;
+    font-weight:500;
+    font-family: "Segoe UI", sans-serif;
+    cursor: pointer;
+    transition: all 0.4s linear 0s;
+    + div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 0 10px;
+      color: rgb(68, 68, 204);
+      text-align:start;
+      font-family: "Segoe UI", sans-serif;
+    }
+  }
+}
+
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}

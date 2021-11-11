@@ -1,0 +1,59 @@
+
+
+ .cart-no {
+    position: absolute;
+    min-height: 25px;
+    min-width: 25px;
+    border-radius: 50%;
+    font-size: 1em;
+    background: #480470;
+    color: white;
+    text-align: center;
+    top: -12px;
+    right: 32px;
+}
+
+.navbar-toggler {
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.blur{
+background: rgb(151, 175, 212, 0.5);
+
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.logo {
+  cursor: pointer;
+
+  
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  transition: 0.2s linear;
+
+}
+
+.nofixed{
+  position:static;
+  top: -50px;
+  transition: 0.2s linear;
+}

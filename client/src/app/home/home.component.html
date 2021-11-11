@@ -1,0 +1,787 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<section
+  style="
+    background: rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+  "
+>
+  <div id="colorlib-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 animate-box">
+          <div class="owl-carousel3">
+            <div class="item">
+              <ngb-carousel
+                *ngIf="images"
+                [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators"
+              >
+                <ng-template
+                  ngbSlide
+                  *ngFor="let image of images; index as i; index as j"
+                >
+                  <div class="picsum-img-wrapper">
+                    <img [src]="image" alt="Random slide" class="pic" />
+                  </div>
+
+                  <div
+                    style="
+                      background: rgba(255, 255, 255, 0.1);
+
+                      backdrop-filter: blur(10px);
+                      -webkit-backdrop-filter: blur(10px);
+                      border-radius: 20px;
+                      margin-top: 200px;
+                      border: 1px solid transparent;
+                    "
+                    class="carousel-caption"
+                  >
+                    <h1 style="color:azure;">{{ titles[i] }}</h1>
+                    <p style="margin: 5px">{{ discription[j] }}</p>
+                    <div
+                      class="btn-group btn-group-toggle"
+                      data-toggle="buttons"
+                    >
+                      <a
+                        href="https://drive.google.com/file/d/1MtKWouA6bAdb3basRonDenmOYkPqV8PW/view?usp=sharing"
+                        style="
+                          color: #ffffff;
+                          background-color: #480470;
+                          border-radius: 30px;
+                          border: none;
+                          margin: 10px 10px;
+                          padding: 10px 10px;
+                          text-align: center;
+                          font-size: 25px;
+                        "
+                        class="btn btn-secondary active"
+                      >
+                        <i class="fas  fa-shopping-cart"></i> Shop
+                      </a>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-carousel>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-md-push-1 animate-box">
+          <div class="about-desc">
+            <div class="owl-carousel3">
+              <div class="item">
+                <h2>
+                  <span style="color: rgb(116, 27, 57); font-family: Segoe UI;">Tyre</span
+                  ><span style="color: rgb(68, 68, 204); font-family: Segoe UI;">E-commerce</span>
+                </h2>
+              </div>
+              <div class="item">
+                <h3>
+                  <span style="color: rgb(116, 27, 57); font-family: Segoe UI; ">The best </span
+                  ><span style="color: rgb(68, 68, 204)"> in town </span>
+                </h3>
+              </div>
+              <div class="item">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player
+                  src="https://assets9.lottiefiles.com/packages/lf20_ijnkssg0.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 250px; height: 250px"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="item">
+                <h1>Who we are and what we do</h1>
+              </div>
+            </div>
+            <div class="desc">
+              <div class="rotate">
+                <h2 class="heading">About Us</h2>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              
+              <aside>
+                <p>Get all your tyres from us.</p>
+              </aside>
+              
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Non arcu
+              risus quis varius quam. Neque ornare aenean euismod elementum nisi
+              quis eleifend quam adipiscing. Phasellus vestibulum lorem sed risus.
+              Mi quis hendrerit dolor magna eget est.</p>
+              <p class="colorlib-social-icons">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100010630635297"
+                  ><i
+                    style="color: #4267b2; margin-right: 2px"
+                    class="fab fa-2x fa-facebook"
+                  ></i
+                ></a>
+                <a
+                  href="https://twitter.com/TMupanesure?t=YI0YAy8Dgk4ABZ_V-qna7w&s=08"
+                  ><i
+                    style="color: #1da1f2; margin-right: 2px"
+                    class="fab fa-2x fa-twitter"
+                  ></i
+                ></a>
+                <a href="https://www.instagram.com/sput.niktech/?r=nametag"
+                  ><i
+                    style="color: #5b51d8; margin-right: 2px"
+                    class="fab fa-2x fa-instagram"
+                  ></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/takudzwa-mupanesure-14a3321b7"
+                  ><i
+                    style="color: #0072b1; margin-right: 2px"
+                    class="fab fa-2x fa-linkedin"
+                  ></i
+                ></a>
+                <a href="https://github.com/Takudzwamz"
+                  ><i
+                    style="color: #181412; margin-right: 2px"
+                    class="fab fa-2x fa-github-square"
+                  ></i
+                ></a>
+              </p>
+              <p>
+                <a
+                  href="/contact_me"
+                  style="
+                    color: #ffffff;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    background-color: #480470;
+                    border-color: transparent;
+                  "
+                  class="btn btn-primary btn-outline"
+                  >Contact US!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr class="hr-line1" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="welcome" data-scroll-index="0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="welcome-content text-center">
+          <h2 class="item">Our workflow</h2>
+          <div class="taku">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="item">
+                  <div class="icon">
+                    <i class="fas fa-2x fa-shopping-cart"></i>
+                  </div>
+                  <h3 style="color: rgb(68, 68, 204)">E-commerce</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="item">
+                  <div class="icon">
+                    <i class="fas fa-2x fa-mobile-alt"></i>
+                  </div>
+                  <h3 style="color: rgb(68, 68, 204)">Responsive</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="item">
+                  <div class="icon">
+                    <i class="fas fa-2x fa-code"></i>
+                  </div>
+                  <h3 style="color: rgb(68, 68, 204)">Clean Code</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="welcome-content color text-center">
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line1" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="welcome" data-scroll-index="0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="welcome-content text-center">
+          <h2 class="item">Services we offer</h2>
+          
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Non arcu
+            risus quis varius quam. Neque ornare aenean euismod elementum nisi
+            quis eleifend quam adipiscing. Phasellus vestibulum lorem sed risus.
+            Mi quis hendrerit dolor magna eget est.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="welcome-content color text-center">
+          <ul class="kards">
+            <li>
+              <a class="kard">
+                <img
+                  src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636547195/pexels-jan-kop%C5%99iva-3399938_odeelo.jpg"
+                  class="kard__image" alt="" />
+                <div class="kard__overlay">
+                  <div class="kard__header">
+                    <svg class="kard__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+
+                    <div class="kard__header-text">
+                      <h3 class="kard__title">Asperiores</h3>
+                      <span class="kard__status">Read more</span>
+                    </div>
+                  </div>
+                  <p class="kard__description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Asperiores, blanditiis?
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="kard">
+                <img
+                  src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636547192/shreesha-bhat-59nIOuU7Mp0-unsplash_hoanwi.jpg"
+                  class="kard__image" alt="" />
+                <div class="kard__overlay">
+                  <div class="kard__header">
+                    <svg class="kard__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+
+                    <div class="kard__header-text">
+                      <h3 class="kard__title">Lorem ipsum</h3>
+
+                      <span class="kard__status">Read more</span>
+                    </div>
+                  </div>
+                  <p class="kard__description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Asperiores, blanditiis?
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="kard">
+                <img
+                  src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636547191/pexels-kelson-downes-1149137_eu3el9.jpg"
+                  class="kard__image" alt="" />
+                <div class="kard__overlay">
+                  <div class="kard__header">
+                    <svg class="kard__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+
+                    <div class="kard__header-text">
+                      <h3 class="kard__title">Lorem ipsum</h3>
+
+                      <span class="kard__status">Read more</span>
+                    </div>
+                  </div>
+                  <p class="kard__description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Asperiores, blanditiis?
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line1" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="welcome" data-scroll-index="0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="welcome-content text-center">
+          <h2 class="item">FAQ's</h2>
+
+          <p style="text-align:center;">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_z4uhcdqn.json" background="transparent" speed="1"
+              style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="welcome-content color text-center">
+          <div class="faq-wrapper">
+          
+            <details>
+              <summary class="disable-select">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+              exercitationem placeat.</summary>
+              <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+                exercitationem placeat adipisci reprehenderit minus, magnam sunt soluta laboriosam voluptas illum! Ducimus eius
+                recusandae possimus. Iusto.</div>
+            </details>
+            <details>
+              <summary class="disable-select">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+              exercitationem placeat</summary>
+              <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+                exercitationem placeat adipisci reprehenderit minus, magnam sunt soluta laboriosam voluptas illum! Ducimus eius
+                recusandae possimus. Iusto.</div>
+            </details>
+            <details>
+              <summary class="disable-select">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+              exercitationem placeat</summary>
+              <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+                exercitationem placeat adipisci reprehenderit minus, magnam sunt soluta laboriosam voluptas illum! Ducimus eius
+                recusandae possimus. Iusto.</div>
+            </details>
+            <details>
+              <summary class="disable-select">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+              exercitationem placeat.</summary>
+              <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+                exercitationem placeat adipisci reprehenderit minus, magnam sunt soluta laboriosam voluptas illum! Ducimus eius
+                recusandae possimus. Iusto.</div>
+            </details>
+            <details>
+              <summary class="disable-select">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+              exercitationem placeat.</summary>
+              <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+                exercitationem placeat adipisci reprehenderit minus, magnam sunt soluta laboriosam voluptas illum! Ducimus eius
+                recusandae possimus. Iusto.</div>
+            </details>
+            <details>
+              <summary class="disable-select">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</summary>
+              <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex necessitatibus ullam alias explicabo reiciendis
+                exercitationem placeat adipisci reprehenderit minus, magnam sunt soluta laboriosam voluptas illum! Ducimus eius
+                recusandae possimus. Iusto.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line1" />
+      </div>
+    </div>
+  </div>
+</section>
+<!--
+<section class="welcome" data-scroll-index="0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="welcome-content text-center">
+
+          <h2>Browse projects by category</h2>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line1" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="welcome" data-scroll-index="0">
+  <h2 class=" text-center">My Skills</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="skill-bars">
+          <div class="bar">
+            <div class="info">
+              <span>.Net Core, C#</span>
+            </div>
+            <div class="progress-line html">
+              <span></span>
+            </div>
+          </div>
+
+          <div class="bar">
+            <div class="info">
+              <span>Angular TypeScript</span>
+            </div>
+            <div class="progress-line css">
+              <span></span>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>HTML</span>
+            </div>
+            <div class="progress-line html">
+              <span></span>
+            </div>
+          </div>
+
+          <div class="bar">
+            <div class="info">
+              <span>CSS, SCSS</span>
+            </div>
+            <div class="progress-line css">
+              <span></span>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>Cloud computing, Digital Ocean, Git</span>
+            </div>
+            <div class="progress-line jquery">
+              <span></span>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>Xamarin.forms</span>
+            </div>
+            <div class="progress-line xamarin">
+              <span></span>
+            </div>
+          </div>
+
+          <div class="bar">
+            <div class="info">
+              <span>Strapi, VueJs</span>
+            </div>
+            <div class="progress-line strapi">
+              <span></span>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>SQL Server, Mysql, MongoDB</span>
+            </div>
+            <div class="progress-line mysql">
+              <span></span>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>Russian language</span>
+            </div>
+            <div class="progress-line ru">
+              <span></span>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>English</span>
+            </div>
+            <div class="progress-line language">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line1" />
+      </div>
+    </div>
+  </div>
+</section>
+<section id="welcome" class="resume" data-scroll-index="2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="head-bar">
+          <i class="fa fa-2x fa-book"></i> EDUCATION AND QUALIFICATIONS
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <article class="education">
+          <h1>
+            Voronezh State University Russian Federation. <span class="label label-default">Sept 2016 to July
+              2020</span>
+          </h1>
+
+          <h2>
+            Certification
+            <small>B.Sc in Fundamental Computer Science and IT</small>
+          </h2>
+
+        </article>
+
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="head-bar"><i class="fa fa-2x fa-briefcase"></i> Work</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <article class="work">
+          <h1>
+            DataArt R&D Center Voronezh <br /> Russian Federation
+            <span class="label label-default">Sept 2019 to Aug 2020</span>
+          </h1>
+          <h2>Mobile development Intern</h2>
+
+        </article>
+
+
+
+
+      </div>
+      <div class="col-md-6">
+        <article class="work">
+          <h1>
+            Junior .Net full stack Developer <br /> South Africa
+            <span class="label label-default">October 2020 to present</span>
+          </h1>
+          <h2>Freelancing </h2>
+
+        </article>
+
+
+
+
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line2" />
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!--About Me 
+<section id="welcome" class="profile" data-scroll-index="1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="head-bar"><i class="fas fa-2x fa-laptop-code"></i> Services I'm offering</h3>
+        <p class="justify-content-center">
+          Want a Services, E-commerce or any type of website? Hire me, lets work together to give your customer the best
+          online experience.
+          Call me or email me lets talk.
+        </p>
+
+
+
+
+        <div class="main">
+
+          <ul class="cards">
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img height="150" width="100%"
+                    src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636020087/Screenshot_2021-11-04_120015_od2lrn.png">
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">E-commerce websites</h2>
+                  <p class="card_text">Fully responsive website, optimized to work on phone, tablets and computers,
+                    complete with shipping services, Online
+                    payment gateway integration, pagination, filtering, sorting, Admin panel and more.</p>
+
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img height="150" width="100%"
+                    src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636018918/Screenshot_2021-11-04_113051_bf6wti.png">
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">Services websites</h2>
+                  <p class="card_text">Fully responsive website, optimized to work on phone, tablets and computers,
+                    showcace your services to your clients in a
+                    beautiful and user friendly website/web app, comes with an Admin panel and more.</p>
+
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img height="150" width="100%"
+                    src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636018917/Screenshot_2021-11-04_112536_umkkdm.png">
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">Android applications</h2>
+                  <p class="card_text">Lets create a services or e-commerce Android mobile app, can also come with a
+                    website
+                    companion to give your customers/clients a choice to use your apps on various platforms. Comes with
+                    an Admin panel</p>
+
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img height="150" width="100%"
+                    src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636018903/Screenshot_2021-11-04_112908_ay8fqb.png">
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">iOS applications</h2>
+                  <p class="card_text">Lets create a services or e-commerce iOS mobile app, can also come with a website
+                    companion to give your customers/clients a choice to use your apps on various platforms. Comes with
+                    an Admin panel</p>
+
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img height="150" width="100%"
+                    src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636018945/Screenshot_2021-11-04_113350_esplue.png">
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">iOS & Android crossplatform apps</h2>
+                  <p class="card_text">Serve all your users from either iOS or Android with the same experience as these
+                    crossplatform apps share the same UI and experience.
+                    Lets work together if you are interested.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img height="150" width="100%"
+                    src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1636018890/Screenshot_2021-11-04_113845_qll9qn.png">
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">API's</h2>
+                  <p class="card_text">Want me to develop your custom API, Lets customize your API for various
+                    applications where being implemented on mobile or web platforms.</p>
+
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <a style="color: #ffffff;
+                      background-color: #480470;
+                      border-radius: 30px;
+                      border: none;
+                      margin: 10px 10px;
+                      padding: 10px 10px;
+                      
+                      text-align: center;">Open featured projects</a>
+
+
+
+      </div>
+      <div class="col-md-4">
+        <div class="col-md-12">
+          <div>
+            <img style="border-radius: 5px;margin-top: 5px;"
+              src="https://res.cloudinary.com/dyzeuqi75/image/upload/v1635189734/1635189670736_vny42j.png" width="100%"
+              height="100%" />
+          </div>
+
+          <div class="item">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_ft0cqvpu.json"
+              background="transparent" speed="1" style="width: 250px; height: 300px;" loop autoplay></lottie-player>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="hr-line2" />
+      </div>
+    </div>
+  </div>
+</section>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

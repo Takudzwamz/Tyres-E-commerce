@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "ShortName": "3D Printing Studio Pick up ",
+    "Description": "Self collection",
+    "DeliveryTime": "Your time",
+    "Price": 0
+  },
+  {
+    "Id": 2,
+    "ShortName": "3D Printing Studio Free Delivery ",
+    "Description": "Free for orders over R200",
+    "DeliveryTime": "Your time",
+    "Price": 0
+  },
+  {
+    "Id": 3,
+    "ShortName": "3D Printing Studio Paid Delivery ",
+    "Description": "Fee for orders less than R200",
+    "DeliveryTime": "Your time",
+    "Price": 40
+  }
+]

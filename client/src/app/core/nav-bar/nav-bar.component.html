@@ -1,0 +1,177 @@
+<!-- Toolbar 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
+<div class="toolbar" role="banner">
+  <img width="50" height="50"  alt="logo" [routerLink]="['/']"  class="logo" src="/assets/images/3d.png" />
+
+  <div class="active "><a style="font-size: 20px; text-decoration: none;
+  color:grey;" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Home</a>
+  </div> 
+  <div class="name"><a style="font-size: 20px;text-decoration: none;
+  color: #09052e;"  routerLink="/shop" routerLinkActive="active">Shop</a>
+  <a *ngIf="(isAdmin$ | async)"  style="font-size: 20px;text-decoration: none;
+  color: #09052e;" class="p-2 " routerLink="/admin" routerLinkActive="active">Admin</a>
+
+  </div>
+
+  <div class="spacer"></div>
+ <div class="wrapper" *ngIf="!(isAdmin$ | async)"><a  style="font-size: 20px;text-decoration: none;
+  color: #09052e;" class="p-2 " routerLink="/basket" > <i class="fa fa-shopping-basket"
+        aria-hidden="true"></i> <span *ngIf="(basket$ | async)" style="font-size: 15px;text-decoration: none;
+  color: red;">{{(basket$ | async).items.length}}</span></a></div>  
+
+<ng-container *ngIf="(currentUser$ | async) === null" >
+
+  <a style="font-size: 20px;text-decoration: none;
+  color: #09052e;" class="p-2 " routerLink="/account/login"> <i class="fas fa-sign-in-alt"></i></a>
+
+  
+  <a style="font-size: 20px;text-decoration: none;
+  color: #09052e;" class="p-2 " routerLink="/account/register" > <i class="fas fa-user-plus"></i></a>
+
+
+</ng-container>
+
+<ng-container *ngIf="currentUser$ | async">
+  <div class="dropdown ml-3 mr-4" dropdown>
+    <a class="dropdown-toggle" style="cursor: pointer; color: #09052e;" dropdownToggle>
+      <strong> <i class="fa fa-2x fa-user" aria-hidden="true"></i></strong>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
+
+    <strong class="dropdown-item d-flex align-items-center py-2" style="color: white;background: rgba( 80, 75, 75, 0.25 );">Hi! {{(currentUser$ | async).displayName}}</strong>
+      <a *ngIf="!(isAdmin$ | async)" style="cursor: pointer; color: white;background: rgba( 80, 75, 75, 0.25 );" routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
+        <i class="fa fa-shopping-cart mr-3"></i> View Basket
+      </a> 
+      <a style="cursor: pointer; color: white; background: rgba( 80, 75, 75, 0.25 );" routerLink="/orders" class="dropdown-item d-flex align-items-center py-2">
+        <i class="fa fa-history mr-3"></i> View Orders
+      </a>
+      <div class="dropdown-divider"></div>
+      <a  style="cursor: pointer; color: white; background: rgba( 80, 75, 75, 0.25 );" (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+        Logout
+      </a>
+    </div>
+  </div>
+
+</ng-container>
+
+</div>
+
+-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" />
+
+<header>
+  <nav style="
+            background: rgba(151, 175, 212, 0.911);
+          
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            " 
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-0"
+    (scroll)="onscroll()" [ngClass]="navbarfixed?'fixed':'nofixed'"
+    >
+    <div class="container">
+      <img width="35" height="35" alt="logo" [routerLink]="['/']" class="logo" src="/assets/images/3d.png" />
+      <a class="nav-item" [routerLinkActive]="['link-active']"
+        style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e" class="nav-link text-#480470"
+        [routerLink]="['/shop']">Shop</a>
+      <a class="nav-item" [routerLinkActive]="['link-active']" *ngIf="(isAdmin$ | async)"
+        style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e;" routerLink="/admin"
+        routerLinkActive="active">Admin</a>
+
+      <!--<div class="wrapper" *ngIf="!(isAdmin$ | async)"><a style="font-size: 25px;text-decoration: none;
+        color: #09052e;" class="p-2 " routerLink="/basket"> <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span
+            *ngIf="(basket$ | async)" style="font-size: 20px;text-decoration: none;
+        color: red;">{{(basket$ | async).items.length}}</span></a></!--<div> -->
+
+      <div *ngIf="!(isAdmin$ | async)" class="d-flex align-items-center py-2">
+        <a class="p-2 " routerLink='/basket' class="position-relative">
+          <i style="color: #09052e; font-size: 25px;" class="fa fa-shopping-basket mr-5"></i>
+          <div *ngIf="(basket$ | async) as basket" class="cart-no">{{(basket$ | async).items.length}}</div>
+        </a>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets2.lottiefiles.com/datafiles/3ZOFTiO258BA8lq/data.json" background="transparent"
+          speed="1" style="width: 30px; height: 30px;" loop autoplay></lottie-player>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <!--<li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+            <a style="font-size: 20px; font-weight:600; text-decoration: none; color:#480470" class="nav-link "
+              [routerLink]="['/']">Home</a>
+          </!--<li>-->
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e"
+              class="nav-link text-#480470" [routerLink]="['/contact us']">Contact Us</a>
+
+          </li> 
+
+          <li *ngIf="currentUser$ | async">
+            <a style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e"
+              class="nav-link text-#09052e" routerLink="/orders"><i class="fa fa-history"></i>
+              View Orders
+            </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <ng-container *ngIf="currentUser$ | async">
+              <div style="cursor: pointer;">
+
+                <strong class=" d-flex align-items-center py-2"
+                  style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e"
+                  class="nav-link text-#09052e"><i class="fa  fa-user" aria-hidden="true"></i> {{(currentUser$ |
+                  async).displayName}}</strong>
+
+
+
+              </div>
+            </ng-container>
+
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <ng-container *ngIf="currentUser$ | async">
+              <div style="cursor: pointer;">
+                <a style="font-size: 20px; font-weight:600; text-decoration: none; color:#09052e"
+                  class="nav-link text-#09052e" (click)="logout()" class=" d-flex align-items-center py-2">
+                  <i class="fas  fa-sign-in-alt"></i> Logout
+                </a>
+
+
+              </div>
+            </ng-container>
+
+          </li>
+
+
+
+
+          <li>
+            <ng-container *ngIf="(currentUser$ | async) === null">
+
+              <a style="font-size: 15px;text-decoration: none;
+            color: #09052e;" class="p-2 mt-3 " routerLink="/account/login"> <i
+                  class="fas fa-2x fa-sign-in-alt"></i></a>
+
+
+              <a style="font-size: 15px;text-decoration: none;
+            color: #09052e;" class="mt-5 p-2 " routerLink="/account/register"> <i
+                  class="fas fa-2x fa-user-plus"></i></a>
+
+
+            </ng-container>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
