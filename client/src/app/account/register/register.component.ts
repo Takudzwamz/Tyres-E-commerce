@@ -5,28 +5,47 @@ import { of, timer } from 'rxjs';
 
 import { AccountService } from '../account.service';
 import { Router } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   errors: string[];
 
-  constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    private router: Router,
+    private title: Title,
+    private metaTagService: Meta,
+    private canonicalService: CanonicalService
+  ) {}
 
   ngOnInit() {
     this.createRegisterForm();
+    this.canonicalService.setCanonicalURL();
+    this.title.setTitle('Register');
+    this.metaTagService.updateTag({
+      name: 'description',
+      content: 'Create new account',
+    });
   }
 
   createRegisterForm() {
     this.registerForm = this.fb.group({
       displayName: [null, [Validators.required]],
-      email: [null,
-        [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')],
-        [this.validateEmailNotTaken()]
+      email: [
+        null,
+        [
+          Validators.required,
+          Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$'),
+        ],
+        [this.validateEmailNotTaken()],
       ],
       password: [null, [Validators.required]],
       // phoneNumber: [null, Validators.required],
@@ -34,23 +53,26 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.accountService.register(this.registerForm.value).subscribe(response => {
-      this.router.navigateByUrl('/shop');
-    }, error => {
-      console.log(error);
-      this.errors = error.errors;
-    });
+    this.accountService.register(this.registerForm.value).subscribe(
+      (response) => {
+        this.router.navigateByUrl('/shop');
+      },
+      (error) => {
+        console.log(error);
+        this.errors = error.errors;
+      }
+    );
   }
 
   validateEmailNotTaken(): AsyncValidatorFn {
-    return control => {
+    return (control) => {
       return timer(500).pipe(
         switchMap(() => {
           if (!control.value) {
             return of(null);
           }
           return this.accountService.checkEmailExists(control.value).pipe(
-            map(res => {
+            map((res) => {
               return res ? { emailExists: true } : null;
             })
           );
@@ -58,5 +80,4 @@ export class RegisterComponent implements OnInit {
       );
     };
   }
-
 }

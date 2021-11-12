@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 import { PayFastAPI } from '@gettruck/payfast-js';
 import { ToastrService } from 'ngx-toastr';
 import { order } from './order';
+import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-checkout-review',
@@ -27,10 +29,19 @@ export class CheckoutReviewComponent implements OnInit {
     private basketService: BasketService,
     private toastr: ToastrService,
     private accountService: AccountService,
-    private orderService: CheckoutService
-  ) { }
+    private orderService: CheckoutService,
+    private title: Title,
+    private metaTagService: Meta,
+    private canonicalService: CanonicalService
+  ) {}
 
   ngOnInit() {
+    this.canonicalService.setCanonicalURL();
+    this.title.setTitle('Checkout Review');
+    this.metaTagService.updateTag({
+      name: 'description',
+      content: 'Review your products before going to payment',
+    });
     this.basket$ = this.basketService.basket$;
     // tslint:disable-next-line: deprecation
     this.basketService.basketTotal$.subscribe((t) => {
@@ -41,18 +52,18 @@ export class CheckoutReviewComponent implements OnInit {
       }
     });
     // tslint:disable-next-line: deprecation
-    this.accountService.address$.subscribe(data => {
+    this.accountService.address$.subscribe((data) => {
       if (data) {
         this.order.shipToAddress = data ? data : null;
       }
-
     });
     // tslint:disable-next-line: deprecation
-    this.basket$.subscribe(basket => {
+    this.basket$.subscribe((basket) => {
       if (basket) {
         this.order.basketId = basket.id;
-        this.order.deliveryMethodId = basket.deliveryMethodId ? basket.deliveryMethodId : 0;
-
+        this.order.deliveryMethodId = basket.deliveryMethodId
+          ? basket.deliveryMethodId
+          : 0;
       }
       // basket.items.forEach(item => {
       //   this.Orders.push(this.order);
@@ -63,8 +74,8 @@ export class CheckoutReviewComponent implements OnInit {
     this.getOrders();
 
     this.payfast = new PayFastAPI({
-      merchant_id: "17541834",
-      merchant_key: "uovukquw6wygd",
+      merchant_id: '17541834',
+      merchant_key: 'uovukquw6wygd',
       production: true,
     });
   }
@@ -89,7 +100,7 @@ export class CheckoutReviewComponent implements OnInit {
     // });
 
     // you can set url if you a have page
-     // this.payfast.cancelURL("http://178.128.146.75/basket");
+    // this.payfast.cancelURL("http://178.128.146.75/basket");
     // this.payfast notifyURL(url: string): void;
     // this.router.navigate(["checkout/success"], navigationExtras);
     // const navigationExtras: NavigationExtras = { state: createdOrder };
@@ -109,6 +120,5 @@ export class CheckoutReviewComponent implements OnInit {
     this.orderService.Orders().subscribe((data: any) => {
       this.Orders = data;
     });
-
   }
 }

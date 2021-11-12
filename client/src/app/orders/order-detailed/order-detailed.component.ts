@@ -5,50 +5,73 @@ import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { IOrder } from 'src/app/shared/models/order';
 import { OrdersService } from '../orders.service';
+import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from 'src/app/services/canonical.service';
 
 @Component({
   selector: 'app-order-detailed',
   templateUrl: './order-detailed.component.html',
-  styleUrls: ['./order-detailed.component.scss']
+  styleUrls: ['./order-detailed.component.scss'],
 })
 export class OrderDetailedComponent implements OnInit {
   order: IOrder;
   id: any;
-  isAdmin: boolean
-  constructor(private route: ActivatedRoute,
+  isAdmin: boolean;
+  constructor(
+    private route: ActivatedRoute,
     private breadcrumbService: BreadcrumbService,
     private ordersService: OrdersService,
-    private accountService: AccountService) {
+    private accountService: AccountService,
+    private title: Title,
+    private metaTagService: Meta,
+    private canonicalService: CanonicalService
+  ) {
     this.breadcrumbService.set('@OrderDetailed', '');
   }
 
   ngOnInit() {
+    this.canonicalService.setCanonicalURL();
+    this.title.setTitle('Order Details');
+    this.metaTagService.updateTag({
+      name: 'description',
+      content: 'View your order details',
+    });
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.accountService.isAdmin$.subscribe(data => {
+    this.accountService.isAdmin$.subscribe((data) => {
       this.isAdmin = data;
-    })
+    });
     if (this.isAdmin) {
-     this.getDetailsPerId()
+      this.getDetailsPerId();
+    } else {
+      this.getDetailsPerUserAndId();
     }
-    else {
-     this.getDetailsPerUserAndId();
-    }
-
   }
   getDetailsPerUserAndId() {
-    this.ordersService.getOrderPerUser(this.id).subscribe((order: IOrder) => {
-      this.order = order;
-      this.breadcrumbService.set('@OrderDetailed', `Order# ${order.id} - ${order.status}`);
-    }, error => {
-      console.log(error);
-    });
+    this.ordersService.getOrderPerUser(this.id).subscribe(
+      (order: IOrder) => {
+        this.order = order;
+        this.breadcrumbService.set(
+          '@OrderDetailed',
+          `Order# ${order.id} - ${order.status}`
+        );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
   getDetailsPerId() {
-    this.ordersService.getOrderDetailed(this.id).subscribe((order: IOrder) => {
-      this.order = order;
-      this.breadcrumbService.set('@OrderDetailed', `Order# ${order.id} - ${order.status}`);
-    }, error => {
-      console.log(error);
-    });
+    this.ordersService.getOrderDetailed(this.id).subscribe(
+      (order: IOrder) => {
+        this.order = order;
+        this.breadcrumbService.set(
+          '@OrderDetailed',
+          `Order# ${order.id} - ${order.status}`
+        );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

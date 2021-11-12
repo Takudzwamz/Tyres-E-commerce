@@ -53,6 +53,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.canonicalService.setCanonicalURL();
-    this.title.setTitle('Tyre E-commerce');
+    this.title.setTitle('Kabuya Tyre Services & Projects');
   }
 }

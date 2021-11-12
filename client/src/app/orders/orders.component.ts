@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { AccountService } from '../account/account.service';
+import { CanonicalService } from '../services/canonical.service';
 import { IOrder } from '../shared/models/order';
 import { OrdersService } from './orders.service';
 
@@ -8,20 +10,28 @@ import { OrdersService } from './orders.service';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
   orders: IOrder[];
   isAdmin: boolean;
   // buyerEmail: any;
 
-
   constructor(
     private ordersService: OrdersService,
     private accountService: AccountService,
+    private title: Title,
+    private metaTagService: Meta,
+    private canonicalService: CanonicalService
   ) {}
 
   ngOnInit() {
+    this.canonicalService.setCanonicalURL();
+    this.title.setTitle('Orders');
+    this.metaTagService.updateTag({
+      name: 'description',
+      content: 'View your orders',
+    });
     /* this.ordersService.getOrders().subscribe((response) => {
       (orders: IOrder[]) => {
         this.orders = orders;
@@ -37,8 +47,7 @@ export class OrdersComponent implements OnInit {
     }
   }
 
-
- /*   Search() {
+  /*   Search() {
     if (this.buyerEmail === ' ') {
       this.getOrders();
     } else {
@@ -48,9 +57,7 @@ export class OrdersComponent implements OnInit {
     }
   }*/
 
-
   getOrdersPerUser() {
-    
     this.ordersService.getOrdersForUser().subscribe(
       (orders: IOrder[]) => {
         this.orders = orders;
@@ -61,7 +68,6 @@ export class OrdersComponent implements OnInit {
     );
   }
   getOrders() {
-    
     this.ordersService.getOrders().subscribe(
       (orders: IOrder[]) => {
         this.orders = orders;

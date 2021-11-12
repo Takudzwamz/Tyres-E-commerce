@@ -109,6 +109,9 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
                 <th class="align-middle">
                   <h5>{{product.name}}</h5>
                 </th>
+                <th class="align-middle">
+                  <h5>{{product.colors}}</h5>
+                </th>
                 <td class="align-middle">{{product.price | currency:'R'}}</td>
                 <td class="align-middle"><button [routerLink]="['edit', product.id]"
                     class="btn btn-warning">Edit</button></td>
