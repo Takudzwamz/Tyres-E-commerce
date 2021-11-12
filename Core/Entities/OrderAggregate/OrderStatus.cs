@@ -4,7 +4,7 @@ namespace Core.Entities.OrderAggregate
 {
     public enum OrderStatus
     {
-        [EnumMember(Value = "Pending")]
+        [EnumMember(Value = "Order made, we will contact you")]
         Pending,
 
         [EnumMember(Value = "Payment Received")]

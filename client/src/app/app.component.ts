@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
         name: 'keywords',
         content:
           // tslint:disable-next-line: max-line-length
-          'Takudzwa, Mupanesure, CSS, HTML, .Net, C#, Angular, Software development, Computer science, E-commerce, Android apps, iOS apps, Windows, .Net 6, ASP.NET Core, SQL, No- SQL, Mongodb, Mysql, Digital Ocean, Github, Software developer, dev, web',
+          'Kabuyu Christopher, Tyres, Kempton park, Cars',
       },
       { name: 'robots', content: 'index, follow' },
 

@@ -163,7 +163,7 @@ article.work {
 
 
 $font-primary: "Karla", Arial, sans-serif;
-$font-secondary: "Playfair Display", Georgia, serif;
+$font-secondary: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 // Overrides
 $grid-gutter-width: 40px !default;
 $border-radius-base: 4px !default;
@@ -580,3 +580,4 @@ p {
 
 @import './scss/card.scss';
 @import './scss/faqs.scss';
+@import './scss/text.scss';

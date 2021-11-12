@@ -1,0 +1,26 @@
+
+
+.header {
+	font-family: "Gill Sans", sans-serif;
+	//font-size: 2rem;
+	font-weight:  100;
+	//letter-spacing: 2px;
+	text-align: left;
+    
+	color: #480470;
+	background-image: -webkit-linear-gradient(92deg, #4343cb, #09052e);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    //background-image: linear-gradient(to right, #4343cb, #09052e);
+	-webkit-animation: hue 10s infinite linear;
+
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
