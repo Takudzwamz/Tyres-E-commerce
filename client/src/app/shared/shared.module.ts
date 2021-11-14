@@ -16,6 +16,7 @@ import { PhotoWidgetComponent } from './components/photo-widget/photo-widget.com
 import {NgxDropzoneModule} from 'ngx-dropzone';
 import {ImageCropperModule} from 'ngx-image-cropper';
 
+
 @NgModule({
   // tslint:disable-next-line: max-line-length
   declarations: [PagingHeaderComponent, PagerComponent, OrderTotalsComponent, TextInputComponent, StepperComponent, BasketSummaryComponent, PhotoWidgetComponent],

@@ -36,8 +36,8 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  getProducts(useCache = false) {
-    this.shopService.getProducts(useCache).subscribe(
+  getProducts(cache = false) {
+    this.shopService.getProducts(cache).subscribe(
       (response) => {
         this.products = response.data;
         this.totalCount = response.count;

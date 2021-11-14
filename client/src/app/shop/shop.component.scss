@@ -68,6 +68,24 @@
   }
 }
 
+hr.hr-4 {
+  padding: 0;
+  border: none;
+  border-top: medium double #8d258d;
+  color: #752794;
+  text-align: center;
+}
+
+hr.hr-4:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.0em;
+  padding: 0 0.25em;
+  background: rgba(93, 17, 144, 0);
+}
+
 
 
 input[type="checkbox"] {
@@ -197,6 +215,49 @@ input[type="checkbox"] {
 
 #burgundy {
   color: #480470;
+  text-align: start;
+}
+
+.sbt {
+  margin-left: 2px;
+  margin-right: 20px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .sbt {
+  margin-left: 2px;
+  margin-right: 20px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .sbt {
+    height: 600px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .sbt {
+    height: 600px;
+  }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .sbt {
+    height: 600px;
+  }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .sbt {
+    height: 620px;
+  }
 }
 
 #orange,

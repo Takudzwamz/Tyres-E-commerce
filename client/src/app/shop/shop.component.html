@@ -1,13 +1,33 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" />
 <!-- Mobile filters section -->
 
 <div  class="sidebar" id="mobile-filter">
-    <div class="form-inline" *ngIf="products">
-        <input (keyup.enter)="onSearch()" id="search" class="form-control ml-2" #search style="width: 200px" placeholder="Search"
-            type="text">
-        <button (click)="onSearch()" style="color: white" class="btn btn-outline-primary my-2 mt-3  ml-2">Search</button>
-        <button (click)="onReset()" style="color:white;" class="btn btn-outline-primary ml-2 mt-3 my-2">Reset</button>
+    <div class="col-lg-4 d-flex justify-content-start" *ngIf="products">
+        <div class="border-bottom mb-2 ml-2">
+            <h4 id="burgundy">Filters</h4>
+            
+        </div>
+        <div class="col-lg-4 d-flex justify-content-start mb-2 " *ngIf="products">
+            
+            <button (click)="onReset()"  class="btn btn-outline-primary justify-content-start ml-2 mb-2">Reset</button>
+        
+        </div>
+
+        
+        
     </div>
+
+    <div class="container" style="width: 70%" class=" border-bottom ml-2">
+        <h6 id="burgundy" class="font-weight-bold ml-2">Sort</h6>
+        <select name="sort" id="sort" class="custom-select mb-1" (change)="onSortSelected($event.target.value)">
+            <option id="search" *ngFor="let sort of sortOptions" [selected]="shopParams.sort === sort.value"
+                [value]="sort.value">
+                {{sort.name}}
+            </option>
+        </select>
+    </div>
+
    <div class="wrap-collabsible">
     <input id="collapsible2" class="toggle" type="checkbox" > 
     <label style="color: #480470;" for="collapsible2" class="lbl-toggle ">Categories</label>
@@ -23,6 +43,38 @@
     </div>
     </div>
     </div>
+
+   
+
+    <div class="wrap-collabsible">
+        <input id="collapsible3" class="toggle" type="checkbox">
+        <label style="color: #480470;" for="collapsible3" class="lbl-toggle ">Brands</label>
+    
+        <div class="collapsible-content">
+            <div *ngIf="types && brands" class="content-inner">
+                <div class="t-outline-pill" *ngFor="let brand of brands" [class.active]="brand.id === this.shopParams.brandId"
+                    value="brand.id" (click)="onBrandSelected(brand.id)">
+                    {{brand.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="wrap-collabsible">
+        <input id="collapsible2" class="toggle" type="checkbox">
+        <label style="color: #480470;" for="collapsible2" class="lbl-toggle ">Brands</label>
+    
+        <div class="collapsible-content">
+            <div *ngIf="types && brands" class="content-inner">
+                <div class="t-outline-pill" *ngFor="let brand of brands" [class.active]="brand.id === this.shopParams.brandId"
+                    value="brand.id" (click)="onBrandSelected(brand.id)">
+                    {{brand.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+-->
 
 
 
@@ -66,7 +118,7 @@
 
     <div class="container" class="py-2 border-bottom ml-3">
         <h6 id="burgundy" class="font-weight-bold">Sort</h6>
-        <select name="sort" id="sort" class="custom-select mb-4" (change)="onSortSelected($event.target.value)">
+        <select name="sort" id="sort" class="custom-select mb-2" (change)="onSortSelected($event.target.value)">
             <option id="search" *ngFor="let sort of sortOptions" [selected]="shopParams.sort === sort.value"
                 [value]="sort.value">
                 {{sort.name}}
@@ -74,54 +126,58 @@
         </select>
     </div>
 
+  
+    <div class="wrap-collabsible">
+        <input id="collapsible4" class="toggle" type="checkbox">
+        <label style="color: #480470;" for="collapsible4" class="lbl-toggle ">Categories</label>
     
-
-<ul class="m-d expand-list">
-    <li data-md-content="600">
-        <label id="burgundy" name="tab" for="tab1" tabindex="-1" class="tab_lab" role="tab">Categories</label>
-        <input type="checkbox" checked class="tab" id="tab1" tabindex="0" />
-        <span class="open-close-icon">
-            <i style="color: #09052e;" class="fas fa-plus"></i>
-            <i style="color: #09052e;" class="fas fa-minus"></i>
-        </span>
-        <div *ngIf="types && brands" id="orange" class="content">
-            <ul class="list-group my-3">
-                <li class="list-group-item" *ngFor="let type of types" [class.active]="type.id === this.shopParams.typeId"
-                    [value]="type.id" (click)="onTypeSelected(type.id)">
+        <div class="collapsible-content">
+            <div *ngIf="types && brands" class="content-inner">
+                <div class="t-outline-pill" *ngFor="let type of types" [class.active]="type.id === this.shopParams.typeId"
+                    value="type.id" (click)="onTypeSelected(type.id)">
                     {{type.name}}
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-    </li>  
-</ul>
-
-
-
-   <!-- <div class="py-2 border-bottom ml-3">
-        <h6 class="font-weight-bold">Product Brand</h6>
-        <div *ngIf="types && brands" id="orange"><span class="fa fa-minus"></span></div>
-        <ul class="list-group my-3">
-            <li class="list-group-item" *ngFor="let brand of brands" [class.active]="brand.id === this.shopParams.brandId"
-                [value]="brand.id" (click)="onBrandSelected(brand.id)">
-                {{brand.name}}
-            </li>
-        </ul>
-    </div> -->
+    </div>
+    <hr class="hr-4">
     
+    
+    <div class="wrap-collabsible">
+        <input id="collapsible5" class="toggle" type="checkbox">
+        <label style="color: #480470;" for="collapsible5" class="lbl-toggle ">Brands</label>
+    
+        <div class="collapsible-content">
+            <div *ngIf="types && brands" class="content-inner">
+                <div class="t-outline-pill" *ngFor="let brand of brands"
+                    [class.active]="brand.id === this.shopParams.brandId" value="brand.id"
+                    (click)="onBrandSelected(brand.id)">
+                    {{brand.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="hr-4">
 
 </section>
 <!-- products section -->
 <section class="sidebar" id="products">
     <div class="container">
+
+        <div class="col-lg-4 d-flex justify-content-center " *ngIf="products">
+            <input (keyup.enter)="onSearch()" id="search" class="form-control " #search style="width: 70%; margin: 5px "
+                placeholder="Search" type="text">
+            <button (click)="onSearch()"  class="btn btn-outline-primary   mt-1"><i class="fas fa-search mr-2"></i></button>
+            
+        </div>
+        
         <div   class="d-flex flex-row">
 
             <div style="color: #09052e"  class=" m-3 " id="res"><app-paging-header  [totalCount]="totalCount" [pageSize]="this.shopParams.pageSize"
                 [pageNumber]="this.shopParams.pageNumber"></app-paging-header></div>
                 
-           <!-- <div class="wrapper " *ngIf="!(isAdmin$ | async)"><a style="font-size: 30px;text-decoration: none;
-              color: #09052e; margin-bottom: 2px;" class="p-2 m-4" routerLink="/basket"> <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span
-                        *ngIf="(basket$ | async)" style="font-size: 20px;text-decoration: none;
-              color: red;">{{(basket$ | async).items.length}}</span></a></div> -->
+        
            
         </div>
     <div class="row ">
